@@ -1,6 +1,7 @@
 This repository contains various Lightning Web Components (LWC) developed as part of Salesforce assignments. Each assignment focuses on different aspects of LWC, including dynamic form rendering, record handling, event handling, and UI interactions.
 
-Assignments Overview Assignment 2. Survey Builder Lightning Web Component A dynamic survey builder that allows users to create survey questions, render forms based on those questions, handle responses, and validate inputs.
+Assignments Overview Assignment 
+2. Survey Builder Lightning Web Component A dynamic survey builder that allows users to create survey questions, render forms based on those questions, handle responses, and validate inputs.
 
 Assignment 3. Record Details Editor A component that fetches and displays a Salesforce record (e.g., Contact, Account) using the @wire decorator, enables inline editing, and validates required fields before saving changes.
 
