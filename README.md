@@ -1,18 +1,9 @@
-# Salesforce DX Project: Next Steps
+This repository contains various Lightning Web Components (LWC) developed as part of Salesforce assignments. Each assignment focuses on different aspects of LWC, including dynamic form rendering, record handling, event handling, and UI interactions.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Assignments Overview Assignment 2. Survey Builder Lightning Web Component A dynamic survey builder that allows users to create survey questions, render forms based on those questions, handle responses, and validate inputs.
 
-## How Do You Plan to Deploy Your Changes?
+Assignment 3. Record Details Editor A component that fetches and displays a Salesforce record (e.g., Contact, Account) using the @wire decorator, enables inline editing, and validates required fields before saving changes.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Assignment 4. Contact Information Viewer and Editor Displays a list of contacts using @wire, allows users to view detailed contact information, and provides an editable form with real-time updates.
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Assignment 5. To-Do List Manager A simple to-do list manager that enables users to add, mark, and remove tasks. Includes checkboxes for task completion and basic CSS styling for a user-friendly experience.
