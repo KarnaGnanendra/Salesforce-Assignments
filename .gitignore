@@ -2,3 +2,4 @@
 *.json 
 *.log 
 node_modules/ 
+*.log 
