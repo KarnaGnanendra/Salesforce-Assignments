@@ -1,0 +1,69 @@
+<template>
+    <!-- Lightning card for Contact Manager with a title and icon -->
+    <lightning-card title="Contact Manager" icon-name="standard:contact">
+        
+        <!-- Contact Dropdown Section -->
+        <div class="slds-m-around_medium">
+            <!-- Check if contacts exist using conditional rendering -->
+            <template if:true={contacts}>
+                <!-- Combobox to select a contact from a list of options -->
+                <lightning-combobox
+                    name="contactList"  
+                    label="Select a Contact"  
+                    placeholder="Choose a contact"  
+                    options={contactOptions}  
+                    value={selectedContactId}  
+                    onchange={handleContactChange}>  <!-- Event handler for when a contact is selected -->
+                </lightning-combobox>
+            </template>
+
+            <!-- Displayed if there are no contacts available -->
+            <template if:false={contacts}>
+                <p>No contacts found.</p>  <!-- Message to display when no contacts are found -->
+            </template>
+        </div>
+
+        <!-- Contact Details Form Section (displayed when a contact is selected) -->
+        <template if:true={selectedContactId}>
+            <div class="slds-m-around_medium">
+                
+                <!-- Input field for First Name -->
+                <lightning-input
+                    label="First Name"  
+                    name="FirstName"  
+                    value={selectedContact.FirstName}  
+                    onchange={handleInputChange}>  
+                </lightning-input>
+
+                <!-- Input field for Last Name -->
+                <lightning-input
+                    label="Last Name"  
+                    name="LastName"   
+                    value={selectedContact.LastName}  
+                    onchange={handleInputChange}>  <!-- Event handler to capture input changes -->
+                </lightning-input>
+
+                <!-- Input field for Email -->
+                <!-- Label for the email input -->
+                <!-- Name attribute for form identification -->
+                <!-- Binds the email of the selected contact -->
+                <lightning-input
+                    label="Email"  
+                    name="Email"  
+                    value={selectedContact.Email}  
+                    onchange={handleInputChange}  
+                    type="email">  <!-- Specifies that the input is for an email address -->
+                </lightning-input>
+
+                <!-- Save button to save changes to the contact -->
+                <lightning-button
+                    label="Save"  
+                    onclick={handleSave}  
+                    class="slds-m-top_medium">  <!-- Adds top margin for spacing -->
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>
+
+

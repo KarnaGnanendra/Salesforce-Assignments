@@ -1,0 +1,18 @@
+<template>
+    <!-- Lightning Card component for UI structure -->
+    <lightning-card title="Record Details Editor Lightning Web Component Using Lightning-record-form">
+        
+        <!-- lightning-record-form to handle the record's data -->
+        <!-- Automatically fetches and displays the record fields of the Contact object -->
+        <!-- API name of the object, in this case, Contact -->
+        <lightning-record-form
+            object-api-name="Contact" 
+            record-id={recordId}  
+            fields={fields}  
+            mode="edit"  
+            onsuccess={handleSuccess}  
+            onerror={handleError}  
+        >
+        </lightning-record-form>
+    </lightning-card>
+</template>

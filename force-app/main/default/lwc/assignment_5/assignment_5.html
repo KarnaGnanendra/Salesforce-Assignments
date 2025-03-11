@@ -1,0 +1,65 @@
+<template>
+    <!-- Lightning card container to house the Todo List -->
+    <lightning-card title="Todo List">
+        
+        <!-- Input section for task entry and control buttons -->
+        <div class="input-container">
+            
+            <!-- Input field to type in a new task -->
+            <lightning-input 
+                label="Enter an item you need to do."  
+                placeholder="Become Salesforce Developer"  
+                
+                value={newTask}  
+                onchange={handleInputChange}>  <!-- Calls 'handleInputChange' when input changes -->
+            </lightning-input>
+            
+            <!-- Button to add the task to the list -->
+            <lightning-button 
+                label="Add"  
+                onclick={addTask}  
+                class="slds-m-left_x-small">  <!-- Adds left margin for spacing -->
+            </lightning-button>
+            
+            <!-- Button to clear the entire task list -->
+            <lightning-button 
+                label="Clear List"  
+                onclick={clearAllTasks}  
+                class="slds-m-left_x-small">  
+            </lightning-button>
+        </div>
+
+        <!-- Display section for listing tasks -->
+        <div class="todo-list">
+            <!-- Informative title for the task list -->
+            <p class="list-title">You can do anything as long as it's in a list</p>
+
+            <!-- Loop through the tasks array and render each task -->
+            <template for:each={tasks} for:item="task">
+                <div key={task.id} class="task-item">  <!-- Each task is a div element with its ID as the key -->
+                    
+                    <!-- Display the task label with dynamic styling based on its completion status -->
+                    <span class={task.cssClass}>{task.label}</span>  <!-- Applies 'cssClass' dynamically -->
+                    
+                    <!-- Button to mark the task as completed -->
+                    <lightning-button-icon 
+                        icon-name="utility:check"  
+                        onclick={completeTask}  
+                        alternative-text="Mark as completed"  
+                        data-id={task.id}>  <!-- Binds the task ID for event handling -->
+                    </lightning-button-icon>
+                    
+                    <!-- Button to delete the task from the list -->
+                    <lightning-button-icon 
+                        icon-name="utility:delete"  
+                        alternative-text="Delete task"  
+                        onclick={deleteTask}  
+                        class="delete-btn"  
+                        data-id={task.id}>  <!-- Binds the task ID for event handling -->
+                    </lightning-button-icon>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+

@@ -1,0 +1,4 @@
+.sfdx/ 
+*.json 
+*.log 
+node_modules/ 

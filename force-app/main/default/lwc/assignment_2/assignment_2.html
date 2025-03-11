@@ -1,0 +1,108 @@
+<template>
+    <!-- Card to wrap the survey form -->
+    <lightning-card title="TOVO RESTAURANT SURVEY FORM">
+        
+        <!-- Form to add a new question -->
+        <div class="slds-m-around_medium">
+            
+            <!-- Input field to type the question -->
+            <lightning-input
+                label="Type Your Question"
+                value={newQuestion.question}
+                onchange={handleNewQuestionInputChange}  
+                data-field="question"  
+                required>
+            </lightning-input>
+ 
+            <!-- Dropdown to select the data type of the answer -->
+            <lightning-combobox
+                label="Select Data Type"
+                value={newQuestion.dataType}
+                placeholder="Select Data Type"
+                onchange={handleNewQuestionInputChange}  
+                data-field="dataType"
+                options={dataTypeOptions}>  <!-- Options for the data types (e.g., text, number, checkbox) -->
+            </lightning-combobox>
+ 
+            <!-- Conditionally render answer input based on selected data type -->
+            <!-- Text Input for "Text" data type -->
+            <template if:true={newQuestion.isText}>
+                <lightning-input
+                    label="Enter Answer"
+                    value={newQuestion.answer}
+                    onchange={handleNewQuestionInputChange}  
+                    data-field="answer"
+                    required>
+                </lightning-input>
+            </template>
+ 
+            <!-- Number Input for "Number" data type -->
+            <template if:true={newQuestion.isNumber}>
+                <lightning-input
+                    type="number"
+                    label="Enter Answer"
+                    value={newQuestion.answer}
+                    onchange={handleNewQuestionInputChange}  
+                    data-field="answer"
+                    required>
+                </lightning-input>
+            </template>
+ 
+            <!-- Checkbox group for "Checkbox" data type -->
+            <template if:true={newQuestion.isCheckbox}>
+                <lightning-checkbox-group
+                    label="Select Answer"
+                    value={newQuestion.answer}
+                    options={checkboxOptions}  
+                    onchange={handleNewQuestionInputChange}  
+                    data-field="answer"
+                    required>
+                </lightning-checkbox-group>
+            </template>
+ 
+            <!-- Dropdown for "Dropdown" data type -->
+            <template if:true={newQuestion.isDropdown}>
+                <lightning-combobox
+                    label="Select Answer"
+                    value={newQuestion.answer}
+                    options={dropdownOptions}
+                    onchange={handleNewQuestionInputChange}  
+                    data-field="answer"
+                    required>
+                </lightning-combobox>
+            </template>
+ 
+            <!-- Button to add the new question to the list -->
+            <lightning-button 
+                label="Add Question" 
+                onclick={handleAddQuestion}  
+                variant="brand">
+            </lightning-button>
+        </div>
+ 
+        <!-- Submit button to handle form submission -->
+        <lightning-button 
+            label="Submit" 
+            onclick={handleSubmit}  
+            variant="success">
+        </lightning-button>
+ 
+        <!-- Loop through the list of added questions and render each one -->
+        <template for:each={questions} for:item="q">
+            <div key={q.id} class="slds-m-around_medium">
+                <!-- Display the question details -->
+                <p><strong>Question {q.id}:</strong> {q.question}</p>
+                <p><strong>Data Type:</strong> {q.dataType}</p>
+                <p><strong>Answer:</strong> {q.answer}</p>
+ 
+                <!-- Button to remove the specific question -->
+                <lightning-button 
+                    label="Remove" 
+                    onclick={handleCancelQuestion}  
+                    data-id={q.id}  
+                    variant="destructive">
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>
